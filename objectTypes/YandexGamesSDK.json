@@ -1,0 +1,10 @@
+{
+	"name": "YandexGamesSDK",
+	"plugin-id": "yagames_sdk",
+	"sid": 319268307481777,
+	"singleglobal-inst": {
+		"type": "YandexGamesSDK",
+		"properties": {},
+		"uid": 28
+	}
+}

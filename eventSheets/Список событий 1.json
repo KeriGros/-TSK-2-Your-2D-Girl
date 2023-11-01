@@ -1,0 +1,1129 @@
+{
+	"name": "Список событий 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Ochki",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Очки игрока",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 513106662041773
+		},
+		{
+			"eventType": "variable",
+			"name": "Tik",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "Сила нажатия",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 298922461906762
+		},
+		{
+			"eventType": "variable",
+			"name": "CenaTik",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "Цена улучшения нажатия",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 145936226137358
+		},
+		{
+			"eventType": "variable",
+			"name": "LVLTik",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "Уровень нажатия",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 748741180360691
+		},
+		{
+			"eventType": "variable",
+			"name": "AvtoTik",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "Сила автоматического нажатия",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 545141712699313
+		},
+		{
+			"eventType": "variable",
+			"name": "CenaAvtoTik",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "Цена улучшения автоматического нажатия",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 200745506442103
+		},
+		{
+			"eventType": "variable",
+			"name": "LVLAvtoTik",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "Уровень автоматического нажатия",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 950758161170889
+		},
+		{
+			"eventType": "variable",
+			"name": "CenaFon",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "Цена за новый фон",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 484103544334538
+		},
+		{
+			"eventType": "variable",
+			"name": "NomerFON",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "Номер фона",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 184415089205877
+		},
+		{
+			"eventType": "variable",
+			"name": "CenaDev",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "Цена за новую ведочку",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 842549184919594
+		},
+		{
+			"eventType": "variable",
+			"name": "NomerDev",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "Номер девочки",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 999452734775905
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Defoult",
+			"description": "Основные и важные операции в игре",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-loader-layout-complete",
+							"objectClass": "System",
+							"sid": 807848042629954
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "System",
+							"sid": 552157750873311,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						},
+						{
+							"id": "loading-api-ready",
+							"objectClass": "YandexGamesSDK",
+							"sid": 623766571976911
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 214410980178964,
+							"parameters": {
+								"audio-file": "Music",
+								"loop": "looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"mus\""
+							}
+						},
+						{
+							"id": "show-fullscreen-ad",
+							"objectClass": "YandexGamesSDK",
+							"sid": 396432016117004,
+							"parameters": {
+								"id": "\"Start\""
+							}
+						}
+					],
+					"sid": 852897723825790
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 932286512662776,
+							"parameters": {
+								"interval-seconds": "60"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Каждую минуту игра сохраняется"
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 432567167569926,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						}
+					],
+					"sid": 343834881252942
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 276778659440525,
+							"parameters": {
+								"interval-seconds": "1.0"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 788278020810278,
+							"parameters": {
+								"first-value": "timescale",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 872083392331187,
+							"parameters": {
+								"variable": "Ochki",
+								"value": "AvtoTik"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Ochki",
+							"sid": 590554612318388,
+							"parameters": {
+								"text": "Ochki"
+							}
+						}
+					],
+					"sid": 654963858437099
+				}
+			],
+			"sid": 817913489264098,
+			"text-color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"background-color": [
+				1,
+				0,
+				0,
+				1
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "YandexSDK",
+			"description": "Яндекс Реклама",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-fullscreen-ad-open",
+							"objectClass": "YandexGamesSDK",
+							"sid": 677601566379451,
+							"parameters": {
+								"id": "\"Start\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 802988492369269,
+							"parameters": {
+								"tag": "\"mus\"",
+								"state": "pause"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 922693282351898,
+							"parameters": {
+								"time-scale": "0"
+							}
+						}
+					],
+					"sid": 488030794076469
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-fullscreen-ad-close",
+							"objectClass": "YandexGamesSDK",
+							"sid": 510411425487813,
+							"parameters": {
+								"id": "\"Start\""
+							}
+						},
+						{
+							"id": "fullscreen-ad-was-shown",
+							"objectClass": "YandexGamesSDK",
+							"sid": 469102199395281
+						}
+					],
+					"actions": [
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 757582911353239,
+							"parameters": {
+								"tag": "\"mus\"",
+								"state": "resume"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 261813941547282,
+							"parameters": {
+								"time-scale": "1.0"
+							}
+						}
+					],
+					"sid": 579826887081948
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-fullscreen-ad-open",
+							"objectClass": "YandexGamesSDK",
+							"sid": 407236899928109,
+							"parameters": {
+								"id": "\"Girl\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 654921260024909,
+							"parameters": {
+								"tag": "\"mus\"",
+								"state": "pause"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 948669444486813,
+							"parameters": {
+								"time-scale": "0"
+							}
+						}
+					],
+					"sid": 244673670648136
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-fullscreen-ad-close",
+							"objectClass": "YandexGamesSDK",
+							"sid": 311674976017308,
+							"parameters": {
+								"id": "\"Girl\""
+							}
+						},
+						{
+							"id": "fullscreen-ad-was-shown",
+							"objectClass": "YandexGamesSDK",
+							"sid": 752727304989701
+						}
+					],
+					"actions": [
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 334095011612937,
+							"parameters": {
+								"tag": "\"mus\"",
+								"state": "resume"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 520682632671699,
+							"parameters": {
+								"time-scale": "1.0"
+							}
+						}
+					],
+					"sid": 838026857604972
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-fullscreen-ad-open",
+							"objectClass": "YandexGamesSDK",
+							"sid": 710445393068056,
+							"parameters": {
+								"id": "\"Background\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 555904683987591,
+							"parameters": {
+								"tag": "\"mus\"",
+								"state": "pause"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 537650300919399,
+							"parameters": {
+								"time-scale": "0"
+							}
+						}
+					],
+					"sid": 475435504557550
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-fullscreen-ad-close",
+							"objectClass": "YandexGamesSDK",
+							"sid": 255531629839705,
+							"parameters": {
+								"id": "\"Background\""
+							}
+						},
+						{
+							"id": "fullscreen-ad-was-shown",
+							"objectClass": "YandexGamesSDK",
+							"sid": 363737124643331
+						}
+					],
+					"actions": [
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 388409172015635,
+							"parameters": {
+								"tag": "\"mus\"",
+								"state": "resume"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 472835039992621,
+							"parameters": {
+								"time-scale": "1.0"
+							}
+						}
+					],
+					"sid": 447334061871245
+				}
+			],
+			"sid": 234389983898873,
+			"background-color": [
+				0.9764705882352941,
+				0.8980392156862745,
+				0.06274509803921569,
+				1
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Buy",
+			"description": "Покупка предметов в игре",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Tuch",
+							"sid": 440183413730431,
+							"parameters": {
+								"object": "BustDev"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 331554004142663,
+							"parameters": {
+								"variable": "Ochki",
+								"comparison": 5,
+								"value": "CenaDev"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 549982621152715,
+							"parameters": {
+								"first-value": "NomerDev",
+								"comparison": 3,
+								"second-value": "11"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 754833815910857,
+							"parameters": {
+								"audio-file": "Buy",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 329909348977055,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "show-fullscreen-ad",
+							"objectClass": "YandexGamesSDK",
+							"sid": 605371753643807,
+							"parameters": {
+								"id": "\"Girl\""
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 368219110606750,
+							"parameters": {
+								"variable": "Ochki",
+								"value": "CenaDev"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 205223653315336,
+							"parameters": {
+								"variable": "CenaDev",
+								"value": "200"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "CenaDev",
+							"sid": 203396641952745,
+							"parameters": {
+								"text": "CenaDev"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Devochka",
+							"sid": 738922675378816,
+							"parameters": {
+								"frame-number": "NomerDev"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 724572823968735,
+							"parameters": {
+								"variable": "NomerDev",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "SpisokDev",
+							"sid": 952774040101354,
+							"parameters": {
+								"text": "NomerDev&\"/12\""
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "BustDev",
+							"sid": 166349289739872,
+							"parameters": {
+								"width": "260.67925",
+								"height": "56.711508"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 582397666891176,
+							"parameters": {
+								"seconds": "0.4"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "BustDev",
+							"sid": 272013642132446,
+							"parameters": {
+								"width": "250.67925",
+								"height": "46.711508"
+							}
+						}
+					],
+					"sid": 258899889646382
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Tuch",
+							"sid": 317113140316876,
+							"parameters": {
+								"object": "BustFON"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 558899619929747,
+							"parameters": {
+								"variable": "Ochki",
+								"comparison": 5,
+								"value": "CenaFon"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 127322817902114,
+							"parameters": {
+								"first-value": "NomerFON",
+								"comparison": 3,
+								"second-value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 452362514960395,
+							"parameters": {
+								"audio-file": "Buy",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 428985266547000,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "show-fullscreen-ad",
+							"objectClass": "YandexGamesSDK",
+							"sid": 139445083428847,
+							"parameters": {
+								"id": "\"Background\""
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 202843564351653,
+							"parameters": {
+								"variable": "Ochki",
+								"value": "CenaFon"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 677871574740532,
+							"parameters": {
+								"variable": "CenaFon",
+								"value": "200"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "CenaFon",
+							"sid": 198257752162969,
+							"parameters": {
+								"text": "CenaFon"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "FON",
+							"sid": 418672372512015,
+							"parameters": {
+								"frame-number": "NomerFON"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 904747504756317,
+							"parameters": {
+								"variable": "NomerFON",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "SpisokFon",
+							"sid": 191596581875170,
+							"parameters": {
+								"text": "NomerFON&\"/5\""
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "BustFON",
+							"sid": 493584099905402,
+							"parameters": {
+								"width": "260.67925",
+								"height": "56.711508"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 292469684760660,
+							"parameters": {
+								"seconds": "0.4"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "BustFON",
+							"sid": 722438683960963,
+							"parameters": {
+								"width": "250.67925",
+								"height": "46.711508"
+							}
+						}
+					],
+					"sid": 939795718926968
+				}
+			],
+			"sid": 938487627494082,
+			"background-color": [
+				0.7490196078431373,
+				0.5294117647058824,
+				0.9333333333333333,
+				1
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "LvL_UP",
+			"description": "Все события связанные с улучшением характеристик в игр",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Tuch",
+							"sid": 183590086262280,
+							"parameters": {
+								"object": "BustTik"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 683574488268287,
+							"parameters": {
+								"variable": "Ochki",
+								"comparison": 5,
+								"value": "CenaTik"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Улучшение нажатия"
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 551439313325800,
+							"parameters": {
+								"variable": "Ochki",
+								"value": "CenaTik"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 901811259091744,
+							"parameters": {
+								"variable": "Tik",
+								"value": "LVLTik"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Ochki",
+							"sid": 622394713500354,
+							"parameters": {
+								"text": "Ochki"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 146520553773963,
+							"parameters": {
+								"variable": "LVLTik",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "LVLTik",
+							"sid": 311265553731480,
+							"parameters": {
+								"text": "LVLTik+1&\"Lvl: + \"&Tik&\"/ТЫК:\""
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 348331044323150,
+							"parameters": {
+								"variable": "CenaTik",
+								"value": "10+LVLTik"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "CenaTik",
+							"sid": 636211867683783,
+							"parameters": {
+								"text": "CenaTik"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 642207008380304,
+							"parameters": {
+								"audio-file": "Buy",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "BustTik",
+							"sid": 398962871152148,
+							"parameters": {
+								"width": "260.67925",
+								"height": "56.711508"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 935662813928648,
+							"parameters": {
+								"seconds": "0.4"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "BustTik",
+							"sid": 400498930266462,
+							"parameters": {
+								"width": "250.67925",
+								"height": "46.711508"
+							}
+						}
+					],
+					"sid": 107684701163522
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Tuch",
+							"sid": 242409109261385,
+							"parameters": {
+								"object": "BUSTAvto"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 750930411463421,
+							"parameters": {
+								"variable": "Ochki",
+								"comparison": 5,
+								"value": "CenaAvtoTik"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Улучшение автоматического нажатия"
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 743123065857267,
+							"parameters": {
+								"variable": "Ochki",
+								"value": "CenaAvtoTik"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 125361565617119,
+							"parameters": {
+								"variable": "AvtoTik",
+								"value": "LVLAvtoTik"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Ochki",
+							"sid": 597079236173711,
+							"parameters": {
+								"text": "Ochki"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 178065247433005,
+							"parameters": {
+								"variable": "CenaAvtoTik",
+								"value": "10+LVLAvtoTik"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 477491274730470,
+							"parameters": {
+								"variable": "LVLAvtoTik",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "LVLAvtoTik",
+							"sid": 265624174279474,
+							"parameters": {
+								"text": "LVLAvtoTik&\"lvl: + \"&AvtoTik&\"/СЕК\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "CenaAvtoTik",
+							"sid": 983508169777144,
+							"parameters": {
+								"text": "CenaAvtoTik"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 403349370611230,
+							"parameters": {
+								"audio-file": "Buy",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "BUSTAvto",
+							"sid": 657474300918180,
+							"parameters": {
+								"width": "260.67925",
+								"height": "56.711508"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 146895853523168,
+							"parameters": {
+								"seconds": "0.4"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "BUSTAvto",
+							"sid": 986782906935103,
+							"parameters": {
+								"width": "250.67925",
+								"height": "46.711508"
+							}
+						}
+					],
+					"sid": 104365394955662
+				}
+			],
+			"sid": 274308706572837,
+			"background-color": [
+				0.7490196078431373,
+				0.8,
+				0.8784313725490196,
+				1
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Нажатие на девочку"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Tuch",
+					"sid": 905691739149156,
+					"parameters": {
+						"object": "Devochka"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "Devochka",
+					"sid": 914667679143768,
+					"parameters": {
+						"width": "443.068849 ",
+						"height": "580.847608"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 877361066981989,
+					"parameters": {
+						"seconds": "0.05"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Devochka",
+					"sid": 561836457761178,
+					"parameters": {
+						"width": "433.068849 ",
+						"height": "570.847608"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 709015262321783,
+					"parameters": {
+						"variable": "Ochki",
+						"value": "Tik"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Ochki",
+					"sid": 105777260705979,
+					"parameters": {
+						"text": "Ochki"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 850180684617305,
+					"parameters": {
+						"audio-file": "Blub",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 520633111614578
+		}
+	],
+	"sid": 313337882002070
+}

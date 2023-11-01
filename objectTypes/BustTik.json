@@ -1,0 +1,58 @@
+{
+	"name": "BustTik",
+	"plugin-id": "Sprite",
+	"sid": 625714140272033,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 1878,
+						"height": 449,
+						"originX": 0.46677740863787376,
+						"originY": 0.5033222591362126,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8958118,
+						"collisionPoly": {
+							"points": [
+								0.46511627906976744,
+								0.0016611295681063123,
+								0.5348837209302325,
+								0.0016611295681063123,
+								0.9983388704318937,
+								0.46511627906976744,
+								0.9983388704318937,
+								0.5348837209302326,
+								0.5348837209302325,
+								0.9983388704318937,
+								0.46511627906976744,
+								0.9983388704318937,
+								0.0016611295681063123,
+								0.5348837209302326,
+								0.0016611295681063123,
+								0.46511627906976744
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 272129717788371,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

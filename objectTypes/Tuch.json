@@ -1,0 +1,12 @@
+{
+	"name": "Tuch",
+	"plugin-id": "Touch",
+	"sid": 992016546038726,
+	"singleglobal-inst": {
+		"type": "Tuch",
+		"properties": {
+			"use-mouse-input": true
+		},
+		"uid": 4
+	}
+}
